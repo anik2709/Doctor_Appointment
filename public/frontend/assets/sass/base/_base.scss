@@ -1,0 +1,68 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+}
+
+
+html {
+    font-size: $base-font-size;
+}
+:root {
+    scroll-behavior: unset;
+}
+body {
+    font-family: $base-font;
+    color:$body-color;
+    font-size: 16px;
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    font-size: 18px;
+    color: $content-color;
+    margin: 0;
+    font-family: $base-font;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $heading-font;
+    font-weight: 500;
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+img{
+    max-width: 100%;
+}
+
+.section-padding {
+    padding-top: 100px;
+    padding-bottom: 70px;
+}
+
+.d-flex {
+    display: flex;
+}

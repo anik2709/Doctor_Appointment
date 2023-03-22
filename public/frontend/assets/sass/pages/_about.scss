@@ -1,0 +1,206 @@
+
+// about and service page
+
+
+.work-wrap {
+    padding: 40px;
+    border: 7px solid $icon-bg-2;
+    border-radius: 5px;
+    margin-bottom: 30px;
+    .work-icon {
+        width: 50px;
+        margin-bottom: 20px;
+    }
+    h5 {
+        font-size: 22px;
+        color: $black;
+        margin-bottom: 20px;
+    }
+    p {
+        font-size: 16px;
+        line-height: 28px;
+        color: $black-ash;
+    }
+}
+.work-wrap.active {
+    border: 7px solid #e22356;    
+}
+
+
+// service page start 
+.service-help-area {
+    background: #ebf5f6;
+}
+
+// service page end 
+
+// gallary page start
+.gallary-area {
+    h5 {
+        display: none;
+    }
+}
+.gallary-img {
+    position: relative;
+    transition: all .3s ease;
+    margin-bottom: 30px;
+    img {
+        width: 100%;
+    }
+    &::before{
+        content: "";
+        position: absolute;
+        background: #e22356;
+        opacity: .4;
+        height: 90%;
+        width: 90%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        visibility: hidden;
+        opacity: 0;
+        transition: all .3s ease;
+    }
+    &::after{
+        position: absolute;
+        content: "+";
+        font-size: 100px;
+        color: $white;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        cursor: pointer;
+        visibility: hidden;
+        opacity: 0;   
+        transition: all .3s ease;
+    }
+    &:hover {
+        &::after{
+            visibility: visible;
+            opacity: 1;
+        }
+        &::before{
+            visibility: visible;
+            opacity: .4;
+        }
+    }
+
+}
+// gallary page end
+
+
+// blog list start 
+.blog-service-wrap {
+    .category-title {
+        background: $primary-theme;
+        padding: 15px;
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+        h5 {
+            font-size: 20px;
+            color: $white;
+        }
+    }
+}
+.service-category {
+    background: $body-bg;
+    padding: 40px;
+    border-radius: 5px;
+    margin-bottom: 50px;
+    .blog-input {
+        input {
+            background: $white;
+            color: $body-color;
+            &::placeholder{
+                color: $body-color;
+            }
+        }
+    }
+    .category-list {
+        li {
+            margin-bottom: 15px;
+            a {
+                i {
+                    color: $primary-theme;
+                    margin-right: 10px;
+                }
+                font-size: 16px;
+                color: $black-ash;
+            }
+        }
+    }
+    .tag-list {
+        li {margin: 5px;
+            display: inline-block;           
+            a {
+                display: inline-block;
+                padding: 10px 20px;
+                color: $black-ash;
+                background: $white;
+                transition: all .3s ease;
+                border-radius: 5px;
+                &:hover {
+                    background: $primary-theme;
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+.pagination-list {
+    display: flex;
+    padding-top: 30px;
+    align-items: center;
+    margin-bottom: 30px;
+    li {
+        margin: 5px;
+        a {
+            height: 50px;
+            width: 50px;
+            background: $body-bg;
+            line-height: 50px;
+            text-align: center;
+            display: inline-block;
+            border-radius: 50%;
+            color: $primary-theme;
+        }
+        a.active{
+            color: $white;
+            background: $primary-theme;
+
+        }
+        @media (max-width: 576px) {
+            &:nth-child(4){
+                display: none;
+            }
+            &:nth-child(5){
+                display: none;
+            }
+            &:nth-child(6){
+                display: none;
+            }
+        }
+    }
+}
+// blog list end 
+
+// blog details start 
+.blog-details-wrap {
+    &:hover{
+        .blog-img {
+            a {
+                &::before{
+                    display: none;
+                }
+            }
+        }
+        .blog-title {
+            a {
+                color: $black;
+            }
+        } 
+    }
+}
+// blog details end 
+

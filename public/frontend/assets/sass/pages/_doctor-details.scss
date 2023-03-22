@@ -1,0 +1,248 @@
+
+
+.doctor-details-hero {
+    width: 100%;
+    height: 405px;
+    background: $border-ash;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        height: 400px;
+    }
+    @media (max-width: 576px) {
+        height: 350px;
+    }
+    .details-head {
+        text-align: center;
+        .doctor-img {
+            img {
+                max-width: 200px;
+                background: #fff;
+                border-radius: 50%;
+                -o-object-fit: cover;
+                object-fit: cover;
+                background: #5d5d5d;
+                border: 5px solid #fff;
+                max-height: 200px;
+                object-fit: contain;
+                width: 100%;
+                @media (max-width: 576px) {
+                    max-width: 150px;
+                    max-height: 150px;
+                }
+            }
+        }
+        .details-title {
+            h4 {
+                font-size: 26px;
+                color: $content-color-02;
+                line-height: 38px;
+                margin: 5px 0;
+                @media (max-width: 425px) {
+                    font-size: 20px;
+                    line-height: 30px;
+                }
+            }
+            p {
+                font-size: 20px;
+                color: $primary-theme;
+                margin-bottom: 10px;
+            }
+            span {
+                color: $content-color-01;
+                display: block;
+                font-size: 15px;
+                margin: 5px 0;
+                i {
+                    margin-right: 10px;
+                }
+            }
+        }
+    }
+}
+
+.details-wrap {
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    h4 {
+        font-size: 24px;
+        line-height: 32px;
+        color: $content-color-01;
+        margin-bottom: 10px;
+    }
+    span {
+        font-size: 16px;
+        color: $content-color-02;
+        margin-bottom: 10px;
+        display: inline-block;
+    }
+    .doc-rate {
+        li {
+            color: $positive-bg;
+        }
+    }
+    .doc-exp {
+        p {
+            font-size: 16px;
+            color: $content-color;
+            display: inline-block;
+            @media (max-width: 576px) {
+                font-size: 14px;
+            }
+        }
+        span {
+            font-size: 18px;
+            color: $content-color-01;
+            @media (max-width: 576px) {
+                font-size: 15px;
+            }
+        }
+    }
+    p {
+        font-size: 16px;
+        line-height: 30px;
+        color: $content-color-02;
+        @media (max-width: 576px) {
+            font-size: 15px;
+        }
+    }
+}
+
+.doc-payment {
+    padding: 25px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    h4 {
+        font-size: 26px;
+        color: $content-color;
+        line-height: 38px;
+        margin: 10px 0;
+    }
+    .payemnt-title {
+        display: flex;
+        justify-content: space-between;
+        li {
+            font-size: 20px;
+            color: #5d5d5d;
+            padding: 20px;
+        }
+    }
+    .payment-list {
+        border: 1px solid $border-ash;
+        li {
+            padding: 20px;
+            border-bottom: 1px solid $border-ash;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            color: $content-color-01;
+            font-size: 15px;
+            @media (max-width: 576px) {
+                font-size: 13px;
+            }
+            &:nth-child(odd){
+                background: $body-bg;
+            }
+        }
+    }
+}
+
+.doc-scheduce {
+    padding: 10px;
+}
+.doc-time {
+    border: 1px solid $border-ash;
+    li {
+        border-bottom: 1px solid $border-ash;
+        padding: 10px;
+        margin-bottom: 0;
+        span {
+            color: $content-color-01;
+        }
+    }
+}
+
+.university {
+    margin-top: 20px;
+    li {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        span {
+            font-size: 16px;
+            font-weight: 500;
+            color: $content-color-01;
+            margin: 10px 0;
+        }
+    }
+}
+
+.doc-appointment {
+    padding: 10px 20px;
+    .patient-category{
+        button {
+            height: 40px;
+            padding: 0 20px;
+            background: $white;
+            color: $primary-theme;
+            font-weight: 400;
+            font-size: 14px;
+            outline: none;
+            border: none;
+            cursor: pointer;
+            margin: 5px;
+            border-radius: 10px;
+            border: 1px solid $primary-theme;
+            transition: .3s;
+            &.active{
+                background: $primary-theme;
+                color: $white;
+            }
+        }
+    }
+    .apointment-form {
+        input, select {
+            width: 100%;
+            margin: 5px 0;
+            height: 50px;
+            border-radius: 5px;
+            outline: none;
+            border: 1px solid $border-ash;
+            padding: 0 10px;
+            color: $primary-theme;
+            font-size: 15px;
+            font-weight: 300;
+            &::placeholder{
+                color: $primary-theme;
+                font-weight: 300;
+                font-size: 15px;
+            }
+        }
+        select {
+            display: block;
+            color: $primary-theme;
+            font-size: 15px;
+            font-weight: 300;
+        }
+        #input-msg {
+            width: 100%;
+            height: 100px;
+            border: 1px solid $border-ash;
+            border-radius: 5px;
+            padding: 10px;
+            outline: none;
+            color: $primary-theme;
+            &::placeholder{
+                color: $primary-theme;
+            }
+        }
+        .book-btn {
+            width: 100%;
+            padding-left: 0;
+        }
+    }
+}

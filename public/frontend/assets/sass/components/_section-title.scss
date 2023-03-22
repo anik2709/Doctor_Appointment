@@ -1,0 +1,40 @@
+.section-title {
+    span {
+        font-size: 20px;
+        color: $primary-theme;
+        font-weight: 300;
+        margin-bottom: 10px;
+        text-transform: capitalize;
+    }
+    h3 {
+        font-size: 25px;
+        color: $black;
+        line-height: 45px;
+        font-weight: 700;
+        text-transform: capitalize;
+        @media (max-width: 991px) {
+            font-size: 25px;
+            line-height: 40px;
+        }
+    }
+    p {
+        font-size: 16px;
+        color: $black-ash;
+        margin-top: 15px;
+    }
+}
+
+.camp-link{
+    display: flex;
+    align-items: center;
+    margin-bottom: 30px;
+    li {
+        margin: 0 3px;
+        color: $body-color;
+        font-weight: 500;
+        a {
+            color: $black-ash;
+            font-weight: 300;
+        }
+    }
+}

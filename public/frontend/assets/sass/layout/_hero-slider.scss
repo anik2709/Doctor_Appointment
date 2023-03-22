@@ -1,0 +1,84 @@
+
+
+.hero-area {
+    width: 100%;
+    height: 850px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        height: 600px;
+    }
+    @media (max-width: 576px) {
+        height: 400px;
+    }
+}
+.hero-content {
+    h4 {
+        font-size: 28px;
+        line-height: 55px;
+        font-weight: 400;
+        @media (max-width: 768px) {
+            font-size: 25px;
+            line-height: 45px;
+        }
+        @media (max-width: 576px) {
+            font-size: 20px;
+            line-height: 30px;
+        }
+    }
+    h2 {
+        font-size: 50px;
+        line-height: 70px;
+        font-weight: 700;
+        text-transform: capitalize;
+        margin-bottom: 20px;
+        @media (max-width: 768px) {
+            font-size: 30px;
+            line-height: 45px;
+        }
+        @media (max-width: 576px) {
+            font-size: 25px;
+            line-height: 35px;
+        }
+        span {
+            color: $primary-theme;
+        }
+    }
+    p {
+        font-size: 18px;
+        line-height: 30px;
+        font-weight: 400;
+        margin-bottom: 30px;
+        @media (max-width: 576px) {
+            font-size: 16px;
+            line-height: 22px;
+        }
+    }
+}
+
+// second hero start 
+.hero-area-2 {
+    width: 100%;
+    height: 405px;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 768px) {
+        height: 300px;
+    }
+    @media (max-width: 576px) {
+        height: 350px;
+    }
+}
+.hero-content-2 {
+    h4 {
+        font-size: 30px;
+        line-height: 45px;
+        color: $black;
+    }
+}
