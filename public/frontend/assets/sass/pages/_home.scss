@@ -340,6 +340,8 @@
             background: $black-ash;
             max-width: 150px;
             border: 5px solid $icon-bg;
+            max-height: 150px;
+            height: 100%;
         }
         .add-icon {
             height: 40px;
@@ -495,6 +497,9 @@
         border-radius: 50%;
         border: 10px solid $white;
         object-fit: contain;
+        max-height: 100px;
+        width: 100%;
+        height: 100%;
     }
 }
 .active-testimoni {
