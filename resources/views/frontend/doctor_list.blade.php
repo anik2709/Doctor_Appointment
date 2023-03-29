@@ -44,7 +44,7 @@
                             </div>
                             <div class="member-name">
                                 <h6><a href="{{route('doctor_details.page',$doctor->id)}}">{{$doctor->name}}</a></h6>
-                                <p>Add Category</p>
+                                <p>{{$doctor->category->category_name}}</p>
                             </div>
                         </div>
                     </div>

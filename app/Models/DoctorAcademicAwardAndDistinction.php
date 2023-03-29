@@ -14,8 +14,5 @@ class DoctorAcademicAwardAndDistinction extends Model
         'award_name',
         'award_date',
     ];
-    public function doctor_details(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(DoctorDetail::class,'doctor_details_id');
-    }
+
 }

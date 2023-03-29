@@ -43,7 +43,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function blogs(){
+    public function blogs(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
         return $this->hasMany(Post::class);
     }
+
+//    public function appointmentPost(): \Illuminate\Database\Eloquent\Relations\HasMany
+//    {
+//        return $this->hasMany(Appointment::class,'user','id');
+//    }
 }

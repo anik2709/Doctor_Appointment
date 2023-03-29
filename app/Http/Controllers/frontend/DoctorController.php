@@ -5,15 +5,17 @@ namespace App\Http\Controllers\frontend;
 use App\Http\Controllers\Controller;
 use App\Models\DoctorDetail;
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use function GuzzleHttp\Promise\all;
+use App\Models\Category;
 
 class DoctorController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View|Collection
      */
 //    public function index()
 //    {
@@ -25,15 +27,17 @@ class DoctorController extends Controller
     public function doctor_list()
     {
 
-        $doctors =  DoctorDetail::all();
+        $doctors =  DoctorDetail::with('category')->get();
+
 //        return $doctors;
+//        dd($doctors);
         return view('frontend.doctor_list', compact('doctors'));
     }
 
     public function doctor_details(string $id)
     {
 //        dd($id);
-        $singleDoctor = DoctorDetail::where('id', $id)->with(['awardAndDistinction', 'academicQualification', 'activityPresentation'] )->first();
+        $singleDoctor = DoctorDetail::where('id', $id)->with(['awardAndDistinction', 'academicQualification', 'activityPresentation', 'category'] )->first();
 //       dd($singleDoctor);
 //        return $singleDoctor;
         return  view('frontend.doctor_details',compact('singleDoctor'));

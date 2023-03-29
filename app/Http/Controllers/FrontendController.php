@@ -17,8 +17,19 @@ class FrontendController extends Controller
         $partners = Partner::all();
         $services = Service::all();
         $doctors =  DoctorDetail::with(['awardAndDistinction', 'academicQualification', 'activityPresentation'] )->get();
+        $aboutustitle= getsideSettingsData('About Us Title');
+        $aboutusdescription= getsideSettingsData('About Us Description');
+        $happypatients= getsideSettingsData('Happy Patients');
+        $hospitalrooms= getsideSettingsData('Hospital Rooms');
+        $awardwin= getsideSettingsData('Award Win');
+        $ambulance= getsideSettingsData('Ambulance');
+        $phone= getsideSettingsData('Phone');
+        $email= getsideSettingsData('Email');
+        $address= getsideSettingsData('Address');
+        $address2= getsideSettingsData('Address2');
+
 //        return $doctors;
-        return view('frontend.home', compact('testimonials', 'allPosts', 'partners', 'services', 'doctors'));
+        return view('frontend.home', compact('testimonials', 'allPosts', 'partners', 'services', 'doctors', 'aboutustitle', 'aboutusdescription','happypatients','hospitalrooms','awardwin', 'ambulance', 'phone', 'email', 'address', 'address2'));
 
     }
 
@@ -37,7 +48,14 @@ class FrontendController extends Controller
     }
 
     public function contact_us(){
-        return view('contact_us.page');
+        return view('frontend.contact_us');
+    }
+
+
+    public function about_us(){
+        $aboutustitle= getsideSettingsData('About Us Title');
+        $aboutusdescription= getsideSettingsData('About Us Description');
+        return view('frontend.about_us', compact('aboutustitle', 'aboutusdescription'));
     }
 
 

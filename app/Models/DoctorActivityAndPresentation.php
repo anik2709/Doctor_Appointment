@@ -15,8 +15,5 @@ class DoctorActivityAndPresentation extends Model
         'research_from',
         'research_to',
     ];
-    public function doctor_details(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(DoctorDetail::class,'doctor_details_id');
-    }
+
 }

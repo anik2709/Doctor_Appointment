@@ -58,8 +58,18 @@
                                 </div>
 
                                 <div class="mb-3">
+                                    <label for="password" class="form-label">Confirm Your Password</label>
+                                    <div class="input-group input-group-merge">
+                                        <input type="password" name="password_confirmation" id="password" class="form-control" placeholder="Confirm your password">
+                                        <div class="input-group-text" data-password="false">
+                                            <span class="password-eye"></span>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="mb-3">
                                     <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="checkbox-signup">
+                                        <input type="checkbox" class="form-check-input" id="checkbox-signup" required>
                                         <label class="form-check-label" for="checkbox-signup">I accept <a href="#" class="text-muted">Terms and Conditions</a></label>
                                     </div>
                                 </div>

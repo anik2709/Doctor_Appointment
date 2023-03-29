@@ -8,16 +8,19 @@
                 <div class="row">
                     <div class="header-social">
                         <div class="social-left">
-                            <i class="fa fa-envelope" aria-hidden="true"></i> <p>medisch@example.com </p>
+                            <i class="fa fa-envelope" aria-hidden="true"></i> <p>{{getEmailLink('Email')}}</p>
                         </div>
                         <div class="social-right">
                             <ul class="socila-icon">
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                                <li><a href="{{getFacebookLink()}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="{{getTwitterLink()}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="{{getInstagramLink()}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                                <li><a href="{{getLinkedinLink()}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                             </ul>
-                            <a href="{{route('admin.login')}}" class="login-btn theme-btn">Login/Register</a>
+                            @guest
+                            <a href="{{route('login')}}" class="login-btn theme-btn">Login/Register</a>
+                            @else <a href="{{route('admin.logout')}}" class="login-btn theme-btn">Logout</a>
+                            @endguest
                         </div>
                     </div>
                 </div>
@@ -32,22 +35,21 @@
                             <a href="{{route('home.page')}}"><img src="{{asset('frontend')}}/assets/images/logo.png" alt="Logo"></a>
                         </div>
                         <ul class="contact-details">
-                            <li> <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <li> <i class="fa fa-phone" aria-hidden="true"></i>
                                 <div class="detail">
-                                    <p>121 Walked Street</p>
-                                    <p>NY, USA</p>
+                                    <p>{{getPhoneLink('Phone')}}</p>
+
+                                </div>
+                            </li>
+                            <li> <i class="fa fa-envelope" aria-hidden="true"></i>
+                                <div class="detail">
+                                    <p>{{getEmailLink('Email')}}</p>
                                 </div>
                             </li>
                             <li> <i class="fa fa-map-marker" aria-hidden="true"></i>
                                 <div class="detail">
-                                    <p>121 Walked Street</p>
-                                    <p>NY, USA</p>
-                                </div>
-                            </li>
-                            <li> <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                <div class="detail">
-                                    <p>121 Walked Street</p>
-                                    <p>NY, USA</p>
+                                    <p>{{getAddressLink('Address')}}</p>
+                                    <p>{{getAddress2Link('Address2')}}</p>
                                 </div>
                             </li>
                         </ul>
@@ -99,7 +101,7 @@
 
                                 </li>
 
-                                <li><a href="contact.html">Contact Us</a></li>
+                                <li><a href="{{route('contact_us.page')}}">Contact Us</a></li>
 
                             </ul>
                         </div>

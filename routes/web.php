@@ -6,18 +6,19 @@ use Illuminate\Support\Facades\Route;
 
 require base_path('routes/frontend.php');
 
-Route::get('/admin/login', [\App\Http\Controllers\LoginController::class, 'index'])->name('admin.login');
-Route::get('/admin/logout-page', [\App\Http\Controllers\LoginController::class, 'logoutpage'])->name('admin.logout-page');
+
+
+//Route::get('/admin/login', [\App\Http\Controllers\LoginController::class, 'index'])->name('admin.login');
+//Route::get('/admin/logout-page', [\App\Http\Controllers\LoginController::class, 'logoutpage'])->name('admin.logout-page');
 Route::get('/admin/logout', [\App\Http\Controllers\LoginController::class, 'logout'])->name('admin.logout');
 Route::get('/admin/register', [\App\Http\Controllers\RegisterController::class, 'index'])->name('admin.register');
-Route::post('/admin/login', [\App\Http\Controllers\LoginController::class, 'login'])->name('admin.login.form');
+Route::post('/admin/login-form', [\App\Http\Controllers\LoginController::class, 'login'])->name('admin.login.form');
 Route::post('/admin/register', [\App\Http\Controllers\RegisterController::class, 'store'])->name('admin.register.form');
 
+Route::middleware(['admin'])->prefix('admin')->group(function (){
 
-Route::middleware(['auth'])->prefix('/admin')->group(function () {
+    Route::get('dashboard', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
 
-//    Blog Routes
-    Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'index'])->name('admin.dashboard');
     Route::get('blog/post', [\App\Http\Controllers\PostController::class, 'index'])->name("post.index");
     Route::post('blog/store', [\App\Http\Controllers\PostController::class, 'store'])->name("post.store");
     Route::get('post/blog_list', [\App\Http\Controllers\PostController::class, 'blog_list'])->name('post.blog_list');
@@ -96,6 +97,42 @@ Route::middleware(['auth'])->prefix('/admin')->group(function () {
     Route::get('partner-edit-{id}', [\App\Http\Controllers\PartnerController::class, 'edit'])->name('partner.edit');
     Route::get('partner-delete-{id}', [\App\Http\Controllers\PartnerController::class, 'destroy'])->name('partner.delete');
     Route::put('partner-update-{id}', [\App\Http\Controllers\PartnerController::class, 'update'])->name('partner.update');
+
+
+
+//    category routes
+    Route::get('category-post', [\App\Http\Controllers\CategoryController::class, 'index'])->name("category.add");
+    Route::post('category-store', [\App\Http\Controllers\CategoryController::class, 'store'])->name("category.store");
+    Route::get('category-list', [\App\Http\Controllers\CategoryController::class, 'Category_list'])->name('category.list');
+    Route::get('category-edit-{id}', [\App\Http\Controllers\CategoryController::class, 'edit'])->name('category.edit');
+    Route::get('category-delete-{id}', [\App\Http\Controllers\CategoryController::class, 'destroy'])->name('category.delete');
+    Route::put('category-update-{id}', [\App\Http\Controllers\CategoryController::class, 'update'])->name('category.update');
+
+
+    //    Online Appointment Application List routes
+    Route::get('online_appointment-list', [\App\Http\Controllers\OnlineAppointmentController::class, 'online_appointment_list'])->name('online_appointment.list');
+    Route::get('online_appointment-{id}', [\App\Http\Controllers\OnlineAppointmentController::class, 'destroy'])->name('online_appointment.delete');
 });
 
 
+
+
+Route::middleware(['auth'])->prefix('user')->group(function () {
+
+    Route::middleware(['user'])->group(function (){
+
+//           Dashboard Routes
+        Route::get('/dashboard', [\App\Http\Controllers\AdminController::class, 'user_dashboard'])->name('user.dashboard');
+        //    Online Appointment Application List show routes for user
+        Route::get('User-appointment/details', [\App\Http\Controllers\OnlineAppointmentController::class, 'user_appointment_details'])->name('user_appointment.details');
+
+    });
+
+});
+
+
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//Route::get('/admin/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('admin.dashboard');

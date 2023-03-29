@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\DoctorAcademicAwardAndDistinction;
 use App\Models\DoctorActivityAndPresentation;
 use App\Models\DoctorDetail;
@@ -19,13 +20,15 @@ class DoctorDetailsController extends Controller
      */
     public function index()
     {
-        return view('admin.auth.ui.layout.doctor.doctor');
+        $category = Category::all();
+        return view('admin.auth.ui.layout.doctor.doctor', compact('category'));
     }
 
     public function doctor_list()
     {
-        $doctor_list=DoctorDetail::latest()->paginate(6);
-        return view('admin.auth.ui.layout.doctor.doctor_list', compact('doctor_list'));
+        $doctor_list=DoctorDetail::with('category')->latest()->paginate(6);
+//        $category = Category::all();
+        return view('admin.auth.ui.layout.doctor.doctor_list', compact('doctor_list', ));
     }
 
     /**
@@ -63,6 +66,7 @@ class DoctorDetailsController extends Controller
             'telephone'=>$request->get('telephone'),
             'website'=>$request->get('website'),
             'description'=>$request->get('description'),
+            'category_name'=>$request->get('category_id'),
             'image'=>($name),
 
         ]);

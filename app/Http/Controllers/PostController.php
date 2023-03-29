@@ -55,7 +55,7 @@ class PostController extends Controller
         }
 
         $storePost=Post::create([
-            'user_id'=>\Auth::user()->id,
+            'user_id'=>\Auth::id(),
             'title'=>$request->get('title'),
             'description'=>$request->get('description'),
             'image'=>$name

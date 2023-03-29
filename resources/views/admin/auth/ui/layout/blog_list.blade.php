@@ -41,7 +41,8 @@
                                     <td>{{\Illuminate\Support\Str::limit($bloglist->description, 200, '......')}}</td>
 
                                     <td>
-                                        <img src="{{asset('storage/post-image/'.$bloglist->image)}}" alt="" style="height: 100px; width: auto"/>
+                                        <img src="{{asset('storage/post-image/'.$bloglist->image)}}" alt=""
+                                             style="height: 100px; width: auto"/>
                                     </td>
 
                                     <td>
@@ -51,12 +52,14 @@
                                     <td>
 
                                         <div class="btn-group">
-                                            <a href="{{route('post.edit', ['id'=>$bloglist->id])}}" class="btn btn-warning btn-sm-2">
-                                                    <i  class="fa fa-edit" ></i>
+                                            <a href="{{route('post.edit', ['id'=>$bloglist->id])}}"
+                                               class="btn btn-warning btn-sm-2">
+                                                <i class="fa fa-edit"></i>
                                             </a>
 
-                                            <a href="{{route('post.delete', ['id'=>$bloglist->id])}}" class="btn btn-danger btn-sm">
-                                                    <i  class="fa fa-trash" ></i>
+                                            <a href="{{route('post.delete', ['id'=>$bloglist->id])}}"
+                                               class="btn btn-danger btn-sm">
+                                                <i class="fa fa-trash"></i>
                                             </a>
                                         </div>
 
@@ -80,6 +83,5 @@
 
         </div>
     </div>
-
 
 @endsection

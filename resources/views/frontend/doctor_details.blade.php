@@ -3,6 +3,7 @@
 @section('body_content')
 
     <!-- hero section start  -->
+
     <section class="hero-area-2 doctor-details-hero">
         <div class="container">
             <div class="row justify-content-center">
@@ -13,7 +14,7 @@
                         </div>
                         <div class="details-title">
                             <h4>{{$singleDoctor->name}}</h4>
-                            <p>Add Category</p>
+                            <p>{{$singleDoctor->category-> category_name}}</p>
                             <span><i class="fa fa-phone-square" aria-hidden="true"></i>{{$singleDoctor->telephone}}</span>
                             <span><i class="fa fa-globe" aria-hidden="true"></i>{{$singleDoctor->website}}</span>
                             <span><i class="fa fa-envelope" aria-hidden="true"></i>{{$singleDoctor->email}}</span>
@@ -24,10 +25,12 @@
             </div>
         </div>
     </section>
+
     <!-- hero section start  -->
 
 
     <!-- blog section start  -->
+
     <section class="blog-area section-padding">
         <div class="container">
             <div class="row">
@@ -92,25 +95,51 @@
                         <div class="doc-education doc-payment">
                             <h4>Education</h4>
                             <ul class="university">
-                                <li><span>MBBS - University of California </span> <span>2009</span></li>
-                                <li><span>BDS - The Mind Research Foundation, Bangalore </span> <span>2011</span></li>
-                                <li><span>BS - 115 Mill St, Belmont, MA 02478, United States </span> <span>2013</span></li>
+{{--                                <li>--}}
+{{--                                    <span>{{$singleDoctor->academicQualification[0]->degree_name}}</span> <span>{{$singleDoctor->academicQualification[0]->institution_name}}</span> <span>{{$singleDoctor->academicQualification[0]->degree_from}}</span></li>--}}
+
+{{--                                @dd($singleDoctor->academicQualification)--}}
+                                @foreach($singleDoctor->academicQualification as $education)
+                                    <li>
+                                        <span>{{$education->degree_name}}</span>
+                                        <span>{{$education->institution_name}}</span>
+                                        <span>{{$education->degree_from}}</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="doc-education doc-payment">
                             <h4>Academic Awards</h4>
                             <ul class="university">
-                                <li> <span>Highland Excellance Award</span> <span>2012-2014</span></li>
-                                <li> <span>Reeds University Externam Scholarship</span> <span>2012-2014</span></li>
-                                <li> <span>Homptan Millinium Award</span> <span>2012-2014</span></li>
+{{--                                <li> <span>{{$singleDoctor->awardAndDistinction[0]->award_name}}</span> <span>{{$singleDoctor->awardAndDistinction[0]->award_date}}</span></li>--}}
+
+
+                                @foreach($singleDoctor->awardAndDistinction as $award)
+                                    <li>
+                                        <span>{{$award->award_name}}</span>
+                                        <span>{{$award->award_date}}</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                         <div class="doc-education doc-payment">
                             <h4>Research Activity & Presentations</h4>
                             <ul class="university">
-                                <li> <span>Assesent of Metabolism</span> <span>2012-2014</span></li>
-                                <li> <span>Analysis of Bone Structure</span> <span>2012-2014</span></li>
-                                <li> <span>Analysis of Heart & Body Supply</span> <span>2012-2014</span></li>
+
+                                <li>
+                                    <span><b>Research Name</b></span>
+                                    <span><b>Research From</b></span>
+                                    <span><b>Research To</b></span>
+                                </li>
+
+
+                                @foreach($singleDoctor->activityPresentation as $activity)
+                                    <li>
+                                        <span>{{$activity->research_name}}</span>
+                                        <span>{{$activity->research_from}}</span>
+                                        <span>{{$activity->research_to}}</span>
+                                    </li>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -136,22 +165,28 @@
                         <div class="service-category doc-appointment">
                             <div class="patient-category">
                                 <button type="button" id="mine_btn" class="active">For Me</button>
-                                <button type="button" id="other_btn">For Other</button>
+{{--                                <button type="button" id="other_btn">For Other</button>--}}
                             </div>
-                            <form action="#" class="apointment-form">
-                                <div class="d-none for-others">
-                                    <input id="name" type="text" placeholder="Patient Name">
-                                    <input id="number" type="number" placeholder="Phone">
-                                    <input id="email" type="email" placeholder="Email Address">
-                                </div>
-                                <input id="birth" type="text" placeholder="Date of Birth">
-                                <select>
+                            <form action="{{route('appointment_post.page')}}" class="apointment-form" method="POST">
+                                @csrf
+                                <input type="hidden" name="user_id" value= "{{\Auth::id()}}">
+                                <input type="hidden" name="doctor_details_id" value="{{$singleDoctor->id}}">
+{{--                                <div class="d-none for-others">--}}
+{{--                                    <input id="name" type="text" placeholder="Patient Name">--}}
+{{--                                    <input id="number" type="number" placeholder="Phone">--}}
+{{--                                    <input id="email" type="email" placeholder="Email Address">--}}
+{{--                                </div>--}}
+                                <input id="birth" type="date" name="date_of_birth" placeholder="Date of Birth">
+{{--                                <input id="birth" type="text" name="disease_type" placeholder="Disease Type">--}}
+                                <select name="disease_type">
                                     <option value="disease-type">Disease type</option>
                                     <option value="anxiety">Anxiety Disorders</option>
+                                    <option value="headache">Headache Disorders</option>
+                                    <option value="headache">Fever </option>
                                 </select>
-                                <input type="text" placeholder="Appointment Date">
-                                <textarea id="input-msg" placeholder="Massge"></textarea>
-                                <button type="button" class="theme-btn book-btn">Book Now</button>
+                                <input type="date" name="appointment_date" placeholder="Appointment Date">
+                                <textarea id="input-msg" name="massage" placeholder="Massage"></textarea>
+                                <button type="submit" class="theme-btn book-btn">Book Now</button>
                             </form>
                         </div>
                     </div>
@@ -159,6 +194,7 @@
             </div>
         </div>
     </section>
+
     <!-- blog section end  -->
 
 @endsection

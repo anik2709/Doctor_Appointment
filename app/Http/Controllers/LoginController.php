@@ -34,7 +34,7 @@ class LoginController extends Controller
     public function logout(): \Illuminate\Http\RedirectResponse
     {
         Auth::logout();
-        return to_route('admin.login')->with('success', 'Logout Successfully.');
+        return to_route('home.page')->with('success', 'Logout Successfully.');
     }
 
 //    public function
@@ -82,29 +82,33 @@ class LoginController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return string
      */
-    public function login(Request $request)
-    {
-        $check = $request->all();
-//        dd($check);
-        if (Auth::attempt([
-            'email' => $check['email'],
-            'password' => $check['password'],
+//    public function login(Request $request)
+//    {
+//        $check = $request->all();
+////        dd($check);
+//        if (Auth::attempt([
+//            'email' => $check['email'],
+//            'password' => $check['password'],
+//
+//        ])) {
+//            if (Auth::user()->user_roll === 'admin') {
+////                dd('admin');
+//                return to_route('admin.dashboard');
+//            } else {
+////                dd('User');
+//                return to_route('user.dashboard');
+//            }
+//        } else {
+//            //dd('invalid');
+//            return Redirect::route('admin.login')->with('error', 'Wrong Credential, Try Again');
+//        }
+//
+//        // return to_route('admin.login.form')->with('Success', 'You can login now.');
+//    }
 
-        ])) {
-            if (Auth::user()->user_roll === 'admin') {
-                //dd('admin');
-                return to_route('admin.dashboard');
-            } else {
-                //dd('User');
-                //return "User Dashboard";
-            }
-        } else {
-            //dd('invalid');
-            return Redirect::route('admin.login')->with('error', 'Wrong Credential, Try Again');
-        }
 
-        // return to_route('admin.login.form')->with('Success', 'You can login now.');
-    }
+
+
 
     /**
      * Display the specified resource.

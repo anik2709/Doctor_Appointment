@@ -41,12 +41,14 @@
                             <h4 class="text-dark-50 text-center pb-0 fw-bold">Sign In</h4>
                             <p class="text-muted mb-4">Enter your email address and password to access admin panel.</p>
 
-                            <form action="{{route("admin.login.form")}}" method="post">
+                            <form action="{{route("login")}}" method="post">
                                 @csrf
                                 <div class="mb-3">
                                     <label for="emailaddress" class="form-label">Email address</label>
                                     <input class="form-control" name="email" type="email" id="emailaddress" required="" placeholder="Enter your email">
                                 </div>
+
+
 
                                 <div class="mb-3">
                                     <a href="pages-recoverpw.html" class="text-muted float-end"><small>Forgot your password?</small></a>
@@ -58,6 +60,8 @@
                                         </div>
                                     </div>
                                 </div>
+
+
 
                                 <div class="mb-3 mb-3">
                                     <div class="form-check">

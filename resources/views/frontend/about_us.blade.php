@@ -26,14 +26,14 @@
                 <div class="col-lg-6 col-md-6 col-12">
                     <div class="section-title">
                         <span>About Us</span>
-                        <h3>Professional Health and medical Care in Full Measure</h3>
+                        <h3>{{$aboutustitle['About Us Title']}}</h3>
                     </div>
                     <div class="about-content">
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Minima, quis ipsa. A quod totam quibusdam ipsum aliquam tempora natus nesciunt fuga qui, atque non at voluptate in soluta ratione, praesentium, quos repellendus nulla similique magni labore iste quae saepe. Corrupti, et quas? Vel obcaecati mollitia velit nulla quod in culpa.</p>
-                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni cupiditate aperiam maxime, odit porro praesentium!</p>
-                        <a href="#" class="about-btn theme-btn">Read More
-                            <i class="fa fa-angle-right" aria-hidden="true"></i>
-                        </a>
+                        <p>{{$aboutusdescription['About Us Description']}} </p>
+{{--                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Magni cupiditate aperiam maxime, odit porro praesentium!</p>--}}
+{{--                        <a href="#" class="about-btn theme-btn">Read More--}}
+{{--                            <i class="fa fa-angle-right" aria-hidden="true"></i>--}}
+{{--                        </a>--}}
                     </div>
                 </div>
             </div>

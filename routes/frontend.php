@@ -7,7 +7,7 @@ use App\Http\Controllers\FrontendController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home.page');
 //    About-us Routes
-Route::get('/about-us', [\App\Http\Controllers\frontend\AboutUsController::class, 'about_us'])->name('about_us.page');
+Route::get('/about-us', [FrontendController::class, 'about_us'])->name('about_us.page');
 //    Services Routes
 Route::get('/services', [FrontendController::class, 'services'])->name('services.page');
 //    Gallery Routes
@@ -24,3 +24,7 @@ Route::get('/testimonial', [FrontendController::class, 'testimonial'])->name('te
 Route::get('/doctor-list', [\App\Http\Controllers\frontend\DoctorController::class, 'doctor_list'])->name('doctor_list.page');
 //    Doctor Details Routes
 Route::get('/doctor-details/{id}', [\App\Http\Controllers\frontend\DoctorController::class, 'doctor_details'])->name('doctor_details.page');
+//    Doctor Appointment Routes
+Route::get('/appointment', [\App\Http\Controllers\frontend\AppointmentController::class, 'appointment'])->name('appointment.page');
+//    Doctor Appointment Post Routes
+Route::post('/appointment/post', [\App\Http\Controllers\frontend\AppointmentController::class, 'create'])->name('appointment_post.page')->middleware('auth');

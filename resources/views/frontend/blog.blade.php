@@ -59,16 +59,22 @@
 
                     </div>
 
-                    <ul class="pagination-list">
-                        <li><a href="javascript:void(0)"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>
-                        <li><a href="javascript:void(0)" class="active">1</a></li>
-                        <li><a href="javascript:void(0)">2</a></li>
-                        <li><a href="javascript:void(0)">3</a></li>
-                        <li><a href="javascript:void(0)">4</a></li>
-                        <li><a href="javascript:void(0)">5</a></li>
-                        <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>
-                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-                    </ul>
+                    @if ($allPosts->hasPages())
+                        <div class="pagination-wrapper">
+                            {{ $allPosts->links() }}
+                        </div>
+                    @endif
+
+{{--                    <ul class="pagination-list">--}}
+{{--                        <li><a href="javascript:void(0)"><i class="fa fa-angle-left" aria-hidden="true"></i></a></li>--}}
+{{--                        <li><a href="javascript:void(0)" class="active">1</a></li>--}}
+{{--                        <li><a href="javascript:void(0)">2</a></li>--}}
+{{--                        <li><a href="javascript:void(0)">3</a></li>--}}
+{{--                        <li><a href="javascript:void(0)">4</a></li>--}}
+{{--                        <li><a href="javascript:void(0)">5</a></li>--}}
+{{--                        <li><i class="fa fa-ellipsis-h" aria-hidden="true"></i></li>--}}
+{{--                        <li><a href="javascript:void(0)"><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>--}}
+{{--                    </ul>--}}
 
                 </div>
 

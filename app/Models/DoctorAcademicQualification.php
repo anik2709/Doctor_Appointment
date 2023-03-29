@@ -17,8 +17,5 @@ class DoctorAcademicQualification extends Model
         'degree_to',
         'degree_status'
     ];
-    public function doctor_details(): \Illuminate\Database\Eloquent\Relations\BelongsTo
-    {
-        return $this->belongsTo(DoctorDetail::class,'doctor_details_id');
-    }
+
 }

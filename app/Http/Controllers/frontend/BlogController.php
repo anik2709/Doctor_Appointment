@@ -15,7 +15,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        $allPosts=Post::with('users')->get();
+        $allPosts=Post::with('users')->paginate(2);
         //dd($allPosts);
         return  view('frontend.blog',compact('allPosts'));
     }

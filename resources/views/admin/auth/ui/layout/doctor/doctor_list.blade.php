@@ -23,6 +23,7 @@
                             <tr>
                                 <th scope="col">#ID</th>
                                 <th scope="col">Doctor Name</th>
+                                <th scope="col">Doctor Category</th>
                                 <th scope="col">Doctor Email</th>
                                 <th scope="col">Doctor Telephone Number</th>
                                 <th scope="col">Doctor Website Address</th>
@@ -40,6 +41,8 @@
                                     <td scope="row">{{$doctorlist->id}}</td>
 
                                     <td>{{\Illuminate\Support\Str::limit($doctorlist->name)}}</td>
+
+                                    <td>{{\Illuminate\Support\Str::limit($doctorlist->category->category_name)}}</td>
 
                                     <td>{{\Illuminate\Support\Str::limit($doctorlist->email)}}</td>
 

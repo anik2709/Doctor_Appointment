@@ -20,6 +20,11 @@
 
 
 @include('frontend.layouts.header')
+@if(\Illuminate\Support\Facades\Session:: has('success'))
+    <div class="alert alert-success">
+        {{\Illuminate\Support\Facades\Session::get('success')}}
+    </div>
+@endif
 @yield('body_content')
 
 {{--@include('frontend.layouts.testimonial')--}}
@@ -37,27 +42,28 @@
                     <li><i class="fa fa-map-marker" aria-hidden="true"></i>
                         <div class="detail">
                             <p>ADDRESS</p>
-                            <p>121 Walked Street, NY, USA</p>
+                            <p>{{getAddressLink('Address')}}</p>
+                            <p>{{getAddress2Link('Address2')}}</p>
                         </div>
                     </li>
                     <li><i class="fa fa-phone" aria-hidden="true"></i>
                         <div class="detail">
                             <p>PHONE</p>
-                            <p>0800-123456, 0800-12389</p>
+                            <p>{{getPhoneLink('Phone')}}</p>
                         </div>
                     </li>
                     <li><i class="fa fa-envelope" aria-hidden="true"></i>
                         <div class="detail">
                             <p>EMAIL</p>
-                            <p>medisch@example.com</p>
+                            <p>{{getEmailLink('Email')}}</p>
                         </div>
                     </li>
                 </ul>
                 <ul class="footer-social">
-                    <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                    <li><a href="#"><i class="fa fa-pinterest-p" aria-hidden="true"></i></a></li>
+                    <li><a href="{{getFacebookLink()}}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    <li><a href="{{getTwitterLink()}}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                    <li><a href="{{getInstagramLink()}}"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                    <li><a href="{{getLinkedinLink()}}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                 </ul>
             </div>
             <div class="col-lg-4 col-md-3 col-12 mb-30">
@@ -65,7 +71,7 @@
                     <h5>Useful Links</h5>
                 </div>
                 <ul class="footer-widget">
-                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <li><a href="{{route('about_us.page')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>
                             About Us</a>
                     </li>
                     <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>
@@ -83,7 +89,7 @@
                     <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>
                             Careers</a>
                     </li>
-                    <li><a href="#"><i class="fa fa-angle-right" aria-hidden="true"></i>
+                    <li><a href="{{route('doctor_list.page')}}"><i class="fa fa-angle-right" aria-hidden="true"></i>
                             Appointment</a>
                     </li>
                 </ul>

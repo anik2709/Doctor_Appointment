@@ -14,6 +14,20 @@
 
                     <form action="{{route('doctor.store')}}" method="post" enctype="multipart/form-data">
                         @csrf
+                        <div class="form-group">
+                            <label>
+                                <select name="category_id" class="form-control">
+                                    <option value="disease-type">Doctor Category</option>
+                                    @foreach($category as $doctorcategory)
+                                        <option value="{{ $doctorcategory->id }}">{{$doctorcategory->category_name}}</option>
+                                    @endforeach
+
+                                </select>
+                            </label>
+                        </div>
+                        @error('name')
+                        <span class="text-danger">{{$message}}</span>
+                        @enderror
 
                         <div class="form-group">
                             <label for="name">Doctor Name</label>
