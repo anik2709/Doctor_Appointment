@@ -1,13 +1,13 @@
 $(".mobile-btn").click(function(){
   $(".responsive-menu").toggleClass("active");
-  $(".blank-div").toggleClass("active");    
+  $(".blank-div").toggleClass("active");
 });
 $(".blank-div").click(function(){
   $(".responsive-menu").removeClass("active");
   $(this).removeClass("active")
 });
 
-// header include 
+// header include
 // function includeHTML() {
 //   var z, i, elmnt, file, xhttp;
 //   /* Loop through a collection of all HTML elements: */
@@ -37,16 +37,16 @@ $(".blank-div").click(function(){
 // }
 // includeHTML()
 
-// header include end 
+// header include end
 
 
-// service like active 
+// service like active
 $('.like').on('click',function(){
     $(this).toggleClass('color-change')
 })
 
 
-// service slider active 
+// service slider active
 $('.active-service').slick({
     slidesToShow: 3,
     slidesToScroll: 1,
@@ -85,7 +85,7 @@ $('.active-service').slick({
 });
 
 
-// testimonial active 
+// testimonial active
 $('.active-testimoni').slick({
     slidesToShow: 2,
     slidesToScroll: 1,
@@ -124,7 +124,7 @@ $('.active-testimoni').slick({
 });
 
 
-// odometer 
+// odometer
 if ($(".odometer").length) {
     $('.odometer').appear();
     $(document.body).on('appear', '.odometer', function (e) {
@@ -135,15 +135,17 @@ if ($(".odometer").length) {
         });
     });
 }
-// odometer end 
+// odometer end
 
 
-// Brand active 
+// Brand active
 $('.brand-active').slick({
     slidesToShow: 5,
     slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
     arrows: false,
-    dots: false,
+    dots: true,
     responsive: [
       {
         breakpoint: 1024,
